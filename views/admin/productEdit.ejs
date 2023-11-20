@@ -1,0 +1,445 @@
+<%- include('../adminlayouts/header.ejs') -%>
+<main id="main-wrapper" class="main-wrapper">
+  <div class="header">
+    <!-- navbar -->
+    <div class="navbar-custom navbar navbar-expand-lg">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-block d-md-none" href="/admin/adminhome">
+        <img src="/img/adlante.jpg" alt="Image">
+        </a>
+        <a id="nav-toggle" href="#!" class="ms-auto ms-md-0 me-0 me-lg-3 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-text-indent-left text-muted" viewBox="0 0 16 16">
+            <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </a>
+        <div class="d-none d-md-none d-lg-block">
+          <!-- Form -->
+          <form action="#">
+            <div class="input-group ">
+              <input class="form-control rounded-3" type="search" value="" id="searchInput" placeholder="Search">
+              <span class="input-group-append">
+                <button class="btn  ms-n10 rounded-0 rounded-end" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-search text-dark">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!--Navbar nav -->
+        <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
+          <a href="#" class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+          </a>
+          </li>
+          <li class="dropdown ms-2">
+            <a class="rounded-circle" href="#!" role="button" id="dropdownUser"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md avatar-indicators avatar-online">
+                <img alt="avatar" src="/admin/images/avatar/JISHNU SUIT.jpg" class="rounded-circle">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownUser">
+              <div class="px-4 pb-0 pt-2">
+                <div class="lh-1 ">
+                  <h5 class="mb-1"> Jishnu Raghavan</h5>
+                  <a href="#!" class="text-inherit fs-6">View my profile</a>
+                </div>
+                <div class=" dropdown-divider mt-3 mb-2"></div>
+              </div>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
+                  Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="activity"></i>Activity Log
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="settings"></i>Settings
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/signout">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="power"></i>Sign Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbar vertical -->
+  <!-- Sidebar -->
+  <div class="navbar-vertical navbar nav-dashboard">
+    <div class="h-100" data-simplebar>
+      <!-- Brand logo -->
+      <a class="navbar-brand" href="/adminhome">
+      <img src="/img/adlante.jpg" alt="dash ui - bootstrap 5 admin dashboard template">
+      </a>
+      <!-- Navbar nav -->
+      <ul class="navbar-nav flex-column" id="sideNavbar">
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/dashboard" aria-expanded="false">
+          <i data-feather="home" class="nav-icon me-2 icon-xxs" ></i>
+          Dashboard
+          </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <div class="navbar-heading">Website</div>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link has-arrow  collapsed " href="#!"
+            data-bs-toggle="collapse" data-bs-target="#navecommerce" aria-expanded="false"
+            aria-controls="navecommerce">
+          <i data-feather="shopping-cart" class="nav-icon me-2 icon-xxs" >
+          </i> Ecommerce
+          </a>
+          <div id="navecommerce" class="collapse "
+            data-bs-parent="#sideNavbar">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link has-arrow active" href="/admin/productList">
+                  Product List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/productEdit">
+                Add Product
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/categoryList">
+                  Category List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/orderList">
+                  Order List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/ecommerce-customer">
+                Customer
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/addCoupon">
+                Coupon
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/CouponList">
+                Coupon List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/bannerManagement">
+                banner management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/brandManagement">
+                brand management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/offerManagement">
+                Offers
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="app-content">
+    <!-- Container fluid -->
+    <form action="/admin/addProduct" method="post" enctype="multipart/form-data">
+      <div class="app-content-area">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+              <!-- Page header -->
+              <div class="mb-5">
+                <h3 class="mb-0 ">Add Product</h3>
+              </div>
+            </div>
+          </div>
+          <div>
+            <!-- row -->
+            <div class="row">
+              <div class="col-lg-4 col-12">
+                <!-- card -->
+                <div class="card mb-4">
+                  <!-- card body -->
+                  <div class="card-body">
+                    <label class="form-label" for="flexSwitchStock">No. of Stock</label>
+                    <input name="stock" class="form-control" type="number" id="flexSwitchStock" required>
+                    <!-- input -->
+                    <div>
+                      <!-- input -->
+                      <div class="mb-3">
+                        <label class="form-label" id="productSKU">Gender</label><br>
+                        <div class="form-check form-check-inline">
+                          <input name="gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="Male" checked>
+                          <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <!-- input -->
+                        <div class="form-check form-check-inline">
+                          <input name="gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="Female">
+                          <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                      </div>
+                      <!-- input category and subcategory -->
+                      <label class="form-label" for="category">Category</label>
+                      <div class="d-flex align-items-center mt-2">
+                        <!-- Dropdown and Confirm button side by side -->
+                        <select class="form-select" id="categorySelect" name="category">
+                          <% if (typeof categories !== 'undefined') { %>
+                            <% categories.forEach(function(category) { %>
+                              <option value="<%= category.maincategory %>"><%= category.maincategory %></option>
+                            <% }); %>
+                          <% } %>
+                        </select>
+                      </div>
+                      <label class="form-label" for="subcategory">Subcategory</label>
+                      <div class="d-flex align-items-center mt-2">
+                        <!-- Dropdown and Confirm button side by side -->
+                        <select class="form-select" id="subcategorySelect" name="subcategory">
+                          <% if (typeof categories !== 'undefined') { %>
+                            <% categories.forEach((category) => { %>
+                              <% if (typeof category.subcategory !== 'undefined') { %>
+                                <% category.subcategory.forEach((subcategory)=> { %>
+                                  <option value="<%= subcategory.name %>"><%= subcategory.name %></option>
+                                <% }); %>
+                              <% } %>
+                            <% }); %>
+                          <% } %>
+                        </select>
+                      </div>
+  
+                      <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                          <label class="form-label">Size</label>
+                        </div>
+                        <!-- select menu for Size -->
+                        <select class="form-select" aria-label="Size" name="size">
+                          <option value="small">S</option>
+                          <option value="medium">M</option>
+                          <option value="large">L</option>
+                          <option value="xl">XL</option>
+                          <option value="xxl">XXL</option>
+                          <option value="xxxl">XXXL</option>
+                        </select>
+                      </div>
+  
+                      <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                          <label class="form-label">specification</label>
+                        </div>
+                        <div class="form-control">
+                          <div class="form-group mb-3">
+                            <label for="width">Width:</label>
+                            <input class="form-control" type="number" name="width" id="width">
+                          </div>
+                          <div class="form-group mb-3">
+                            <label for="height">Height:</label>
+                            <input class="form-control" type="number" name="height" id="height">
+                          </div>
+                          <div class="form-group mb-3">
+                            <label for="depth">Depth:</label>
+                            <input class="form-control" type="number" name="depth" id="depth">
+                          </div>
+                          <div class="form-group mb-3">
+                            <label for="weight">Weight:</label>
+                            <input class="form-control" type="number" name="weight" id="weight">
+                          </div>
+                          <div class="form-group mb-3">
+                            <label for="width">Quality checking :</label>
+                            <input class="form-control" type="text" value="yes" name="quality">
+                          </div>
+                          <div class="form-group mb-3">
+                            <label for="width">Freshness duration :</label>
+                            <input class="form-control" type="text" value="3" name="freshness">
+                          </div>
+                          <div class="form-group mb-3">
+                            <label for="width">when packeting :</label>
+                            <input class="form-control" type="text" name="packeting" value="without touch of hand" placeholder="without touch of hand">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8 col-12">
+                <!-- card -->
+                <div class="card mb-4">
+                  <!-- card body -->
+                  <div class="card-body">
+                    <div>
+                      <!-- input -->
+                      <div class="mb-3">
+                        <label class="form-label">Product Title</label>
+                        <input type="text" class="form-control" placeholder="Enter Product Title" name="title" required>
+                      </div>
+                      <!-- input -->
+                      <div>
+                        <label class="form-label">Product Description</label>
+                        <input class="form-control pb-8" name="description" required>
+                      </div>
+                      <!--input-->
+                      <br>
+                      <div class="mb-3">
+                        <!-- select menu -->
+                        <select name="brand" class="form-select" aria-label="Default select example">
+                          <% brands.forEach((brand) => { %>
+                            <option selected><%= brand.title %></option>
+                          <% }) %>
+                        </select>
+                      </div>
+                      <!--tag-->
+                      <div class="mb-3">
+                        <label class="form-label">Tags
+                        </label>
+                          <input name='tags' value="" class="form-control w-100">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- card -->
+                <div class="card mb-4">
+                  <!-- card body -->
+                  <div class="card-body">
+                    <div>
+                      <div class="mb-4">
+                        <!-- heading -->
+                        <h4 class="mb-4">Product Gallery</h4>
+                        <h5 class="mb-1">Product Image</h5>
+                        <p>Add Product main Image.</p>
+                        <!-- input -->
+                        <input name="defaultImage" type="file" class="form-control" accept="image/*" />
+                      </div>
+                      <div>
+                        <!-- heading -->
+                        <h5 class="mb-1">Product Gallery</h5>
+                        <p>Add Product Gallery Images.</p>
+                        <!-- input -->
+                        <form action="#" class="d-block dropzone border-dashed rounded-2">
+                          <div class="fallback">
+                            <input name="galleryImage" name="file"  type="file" multiple accept="image/*" />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- card -->
+                <div class="card mb-4">
+                  <!-- card body -->
+                  <div class="card-body">
+                    <!-- input -->
+                    <div class="mb-3">
+                      <label class="form-label">Regular Price</label>
+                      <input type="number" class="form-control" data-bs-toggle="popover" id="regularPrice" data-bs-trigger="hover-focus" data-bs-content="Enter amount greater than 0" name="regularprice" value="49.00">
+                    </div>
+                    <!-- input -->
+                    <div class="mb-3">
+                      <label class="form-label">Sale Price</label>
+                      <input type="number" class="form-control" data-bs-toggle="popover" id="salePrice" data-bs-trigger="hover-focus" data-bs-content="Enter amount greater than 0" name="saleprice" value="49.00">
+                    </div>
+                    <!-- input -->
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" name="priceincludestaxes" role="switch" id="priceIncluded" checked>
+                      <label class="form-check-label" for="priceIncluded">
+                      Price includes taxes</label>
+                    </div>
+                    <div>
+                      <input name="publish" class="form-check-input" type="checkbox" role="switch" checked>
+                      <label class="form-check-label" for="publish">publish</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- button -->
+                <div class="d-grid">
+                  <button type="submit" id="submitButton" class="btn btn-primary">
+                  Create Product
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+<script src="/admin/libs/dropzone/dist/min/dropzone.min.js"></script>
+<!-- flatpickr -->
+<script src="/admin/libs/flatpickr/dist/flatpickr.min.js"></script>
+<!-- quill js -->
+<script src="/admin/libs/quill/dist/quill.min.js"></script>
+<script src="/admin/libs/%40yaireo/tagify/dist/tagify.min.js"></script>
+<!-- Libs JS -->
+<script src="/admin/libs/jquery/dist/jquery.min.js"></script>
+<script src="/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/libs/feather-icons/dist/feather.min.js"></script>
+<script src="/admin/libs/simplebar/dist/simplebar.min.js"></script>
+<!-- Theme JS -->
+<script src="/admin/js/theme.min.js"></script>
+<script>
+  if('<%= alertMessage %>' !== ""){
+    alert('product created successfully');
+  }
+</script>
+<script>
+  const regularPriceInput = document.getElementById('regularPrice');
+  const salePriceInput = document.getElementById('salePrice');
+  const submitButton = document.getElementById('submitButton');
+
+  function checkInputValues() {
+    const regularPrice = parseFloat(regularPriceInput.value);
+    const salePrice = parseFloat(salePriceInput.value);
+    
+    submitButton.disabled = regularPrice <= 0 || salePrice <= 0;
+  }
+
+  regularPriceInput.addEventListener('input', checkInputValues);
+  salePriceInput.addEventListener('input', checkInputValues);
+
+  checkInputValues();
+
+</script>
+
+<%- include('../adminlayouts/footer.ejs') -%>

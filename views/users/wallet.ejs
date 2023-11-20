@@ -1,0 +1,515 @@
+<%- include('../layouts/header.ejs') -%>  
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+      <div class="top_menu">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="float-left">
+                <p>Phone: +91-9544669588</p>
+                <p>email: vishnu18js@gmail.com</p>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="float-right">
+                <ul class="right_side">
+                  <li>
+                    <a href="">
+                    track order
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                    Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_menu">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="/homepage">
+            <img src="img/adlante (1).png" alt="" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset w-100"
+              id="navbarSupportedContent"
+              >
+              <div class="row w-100 mr-0">
+                <div class="col-lg-7 pr-0">
+                  <ul class="nav navbar-nav center_nav pull-right">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a href="/shop" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-5 pr-0">
+                  <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                    <form action="searchProduct" method="post" class="row g-3">
+                      <div class="col-auto d-flex align-items-center">
+                        <label for="searchProduct" class="visually-hidden">Search</label>
+                        <input type="text" name="searchQuery" class="form-control" id="searchProduct" placeholder="Search">
+                      </div>
+                      <div class="col-auto">
+                        <li class="nav-item">
+                          <button type="submit" class="icons">
+                          <i class="ti-search" aria-hidden="true"></i>
+                          </button>
+                        </li>
+                      </div>
+                    </form>
+                    <li class="nav-item">
+                      <a href="cartPage" class="icons position-relative">
+                        <i class="ti-shopping-cart">
+                          <span class="badge badge-danger rounded-circle position-absolute top-50 end-(-1)">
+                            <% if (cart && cart.items !== null) { %>
+                              <%= cart.items.length %>
+                            <% } else { %>
+                               0
+                            <% } %>
+                          </span>
+                        </i>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <div class="dropdown">
+                        <a href="#" class="icons dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ti-user" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                          <a class="dropdown-item" href="myProfile">My Profile</a>
+                          <a class="dropdown-item" href="myProfile">Orders</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+      <!-- Breadcrumbs -->
+      <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
+        <div class="container">
+          <div class="d-sm-flex text-center">
+            <div class="align-self-center">
+              <h1 class="h3 mb-0">Your Wallet</h1>
+            </div>
+
+            <div class="align-self-center ml-auto">
+              <ul class="u-list-inline">
+                <li class="list-inline-item g-mr-5">
+                  <a class="u-link-v5 g-color-text" href="#!">Home</a>
+                  <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+                </li>
+                <li class="list-inline-item g-mr-5">
+                  <a class="u-link-v5 g-color-text" href="#!">Pages</a>
+                  <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+                </li>
+                <li class="list-inline-item g-color-primary">
+                  <span>Your Wallet</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+
+    <!-- CSS Global Compulsory -->
+
+    <!-- CSS Unify Theme -->
+    <link rel="stylesheet" href="/wallet/assets/css/styles.e-commerce.css">
+
+      <!-- End Breadcrumbs -->
+
+      <div class="container g-pt-70 g-pb-30">
+        <div class="row">
+
+          <!-- Wallet -->
+          <div class="col-lg g-mb-50">
+            <!-- Balance & Rewards -->
+            <div class="g-brd-around g-brd-gray-light-v4 rounded g-px-30 g-pt-30">
+              <h3 class="h5 mb-3">Balance &amp; Rewards</h3>
+
+              <!-- Balance Info -->
+              <div class="row justify-content-between">
+                <div class="col-sm-4 g-mb-30">
+                  <div class="g-bg-gray-dark-v3 text-center rounded g-px-20 g-py-30">
+                    <span class="d-block g-color-white g-font-weight-600 g-font-size-25 mb-1">&#8377; <%= user.walletBalance %></span>
+                    <span class="d-block g-color-white-opacity-0_8 g-font-size-18">Available Balance</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 g-mb-30">
+                  <div class="g-bg-primary text-center rounded g-px-20 g-py-30">
+                    <span class="d-block g-color-white g-font-weight-600 g-font-size-25 mb-1">&#8377; <%=user.rewardBalance %></span>
+                    <span class="d-block g-color-white-opacity-0_8 g-font-size-18">Reward Balance</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-4 g-mb-30">
+                  <div class="g-bg-lightred text-center rounded g-px-20 g-py-30">
+                    <span class="d-block g-color-white g-font-weight-600 g-font-size-25 mb-1">&#8377; <%= user.rewardBalance + user.walletBalance %></span>
+                    <span class="d-block g-color-white-opacity-0_8 g-font-size-18">Pending Balance</span>
+                  </div>
+                </div>
+              </div>
+              <!-- End Balance Info -->
+
+              <!-- Add Balance -->
+              <div class="d-flex g-mb-50">
+                <div class="g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-13 rounded g-px-18 g-py-9">
+                  <input type="number" id="addBalance" name="addBalance" class="g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-13 rounded g-px-18 g-py-9">
+                </div>
+                <button class="btn g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-13 rounded g-px-18 g-py-9" onclick="addWalletBalance()">
+                  <i class="align-middle g-font-size-16 mr-2 icon-finance-210 u-line-icon-pro"></i>
+                  Add Balance
+                </button>
+              </div>
+              <!-- End Add Balance -->
+
+              <div class="row">
+
+                <div class="col-sm-8 g-mb-30">
+                  <h3 class="h5 mb-3">Prime Members Enjoy</h3>
+
+                  <!-- Media -->
+                  <div class="media g-mb-30">
+                    <div class="media-body">
+                      <h4 class="h6 mb-1">Prime Rewards</h4>
+                      <p class="mb-1">Cardmembers earn 3.2% Back at Unify.com with a Prime Credit Card. Earn 1.7% rewards on your debit spending with Prime Reload.</p>
+                      <a class="g-font-size-13" href="#!">Read More</a>
+                    </div>
+                  </div>
+                  <!-- End Media -->
+
+                  <!-- Media -->
+                  <div class="media g-mb-30">
+                    <div class="media-body">
+                      <h4 class="h6 mb-1">Prime Delivery</h4>
+                      <p class="mb-1">Get FREE Two-Day Shipping on over 50 million items.</p>
+                      <a class="g-font-size-13" href="#!">Read More</a>
+                    </div>
+                  </div>
+                  <!-- End Media -->
+
+                  <!-- Media -->
+                  <div class="media g-mb-30">
+                    <div class="media-body">
+                      <h4 class="h6 mb-1">Prime Early Access</h4>
+                      <p class="mb-1">30-minute early access to Lightning Deals on Amazon.</p>
+                      <a class="g-font-size-13" href="#!">Read More</a>
+                    </div>
+                  </div>
+                  <!-- End Media -->
+                </div>
+              </div>
+            </div>
+            <!-- End Balance & Rewards -->
+          </div>
+          <!-- End Wallet -->
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="g-bg-primary">
+        <div class="container g-py-20">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mx-auto g-py-20">
+              <!-- Media -->
+              <div class="media g-px-50--lg">
+                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-048 u-line-icon-pro"></i>
+                <div class="media-body">
+                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">Free Shipping</span>
+                  <span class="d-block g-color-white-opacity-0_8">In 2-3 Days</span>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+
+            <div class="col-md-4 mx-auto g-brd-x--md g-brd-white-opacity-0_3 g-py-20">
+              <!-- Media -->
+              <div class="media g-px-50--lg">
+                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-040 u-line-icon-pro"></i>
+                <div class="media-body">
+                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">Free Returns</span>
+                  <span class="d-block g-color-white-opacity-0_8">No Questions Asked</span>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+
+            <div class="col-md-4 mx-auto g-py-20">
+              <!-- Media -->
+              <div class="media g-px-50--lg">
+                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-hotel-restaurant-062 u-line-icon-pro"></i>
+                <div class="media-body text-left">
+                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">Free 24</span>
+                  <span class="d-block g-color-white-opacity-0_8">Days Storage</span>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Call to Action -->
+
+      <a class="js-go-to u-go-to-v2" href="#!"
+         data-type="fixed"
+         data-position='{
+           "bottom": 15,
+           "right": 15
+         }'
+         data-offset-top="400"
+         data-compensation="#js-header"
+         data-show-effect="zoomIn">
+        <i class="hs-icon hs-icon-arrow-top"></i>
+      </a>
+  </main>
+
+    <div class="u-outer-spaces-helper"></div>
+
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Top Products</h4>
+            <ul>
+              <li><a href="#">Managed Website</a></li>
+              <li><a href="#">Manage Reputation</a></li>
+              <li><a href="#">Power Tools</a></li>
+              <li><a href="#">Marketing Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Features</h4>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Experts</a></li>
+              <li><a href="#">Agencies</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 single-footer-widget">
+            <h4>Newsletter</h4>
+            <p>You can trust us. we only send promo offers,</p>
+            <div class="form-wrap" id="mc_embed_signup">
+              <form method="get" class="form-inline">
+                <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Your Email Address '" required="" type="email">
+                <button class="click-btn btn btn-default">Subscribe</button>
+                <div style="position: absolute; left: -5000px;">
+                  <input tabindex="-1" value="" type="text">
+                </div>
+  
+                <div class="info"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+          <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">jis</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          <div class="col-lg-4 col-md-12 footer-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-behance"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/stellar.js"></script>
+    <script src="/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="/vendors/isotope/isotope-min.js"></script>
+    <script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/mail-script.js"></script>
+    <script src="/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="/vendors/counter-up/jquery.counterup.js"></script>
+    <script src="/js/theme.js"></script>
+
+
+    <script src="/wallet/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/wallet/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="/wallet/assets/vendor/popper.min.js"></script>
+    <script src="/wallet/assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="/wallet/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="/wallet/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- JS Unify -->
+    <script src="/wallet/assets/js/hs.core.js"></script>
+    <script src="/wallet/assets/js/components/hs.header.js"></script>
+    <script src="/wallet/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="/wallet/assets/js/components/hs.dropdown.js"></script>
+    <script src="/wallet/assets/js/components/hs.scrollbar.js"></script>
+    <script src="/wallet/assets/js/components/hs.go-to.js"></script>
+
+    <!-- JS Customization -->
+    <script src="/wallet/assets/js/custom.js"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+      $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#js-header'));
+        $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+          event: 'hover',
+          pageContainer: $('.container'),
+          breakpoint: 991
+        });
+
+        // initialization of HSDropdown component
+        $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+          afterOpen: function () {
+            $(this).find('input[type="search"]').focus();
+          }
+        });
+
+        // initialization of HSScrollBar component
+        $.HSCore.components.HSScrollBar.init($('.js-scrollbar'));
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+      });
+    </script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+
+      function addWalletBalance(){
+        const addBalance = document.getElementById('addBalance').value;
+        console.log('function loading');
+        console.log(addBalance);
+
+        $.ajax({
+          url:"/loadCardPay",
+          method:'POST',
+          data:{addBalance:addBalance},
+          success: function(res){
+            console.log(res);
+            if(res.success){
+              console.log('success');
+              var options = {
+                "key": ""+res.key_id+"",
+              "amount": res.total*100,
+              "currency": "INR",
+              "name": "ADLANTE", // Change this to your company name
+              "description": "wallet payment", // Change this to a suitable description
+              "image": "https://dummyimage.com/600x400/000/fff",
+              "order_id": "" + res.order_id + "",
+
+                "handler": function(response){
+                  console.log('handler fn loading');
+
+                // Check the response to determine success or failure
+                  if (response.razorpay_payment_id) {
+                    // Payment successful
+                    $.ajax({
+                      url: "/addWalletBalance",
+                      type: "POST",
+                      data: { addBalance:addBalance },
+                      success: function (updateRes) {
+                        if (updateRes.success) {
+                          window.location.href  = "/wallet";
+                          // Redirect or perform additional actions on success
+                          // window.open("/","_self")
+                        } else {
+                          alert(updateRes.msg);
+                        }
+                      },
+                      error: function () {
+                        alert("Error updating order payment status");
+                      }
+                    });
+                  }
+                },
+                "prefill": {
+                "contact": "" + res.contact + "",
+                "name": "ADLANTE", // Change this to your company name
+                "email": "" + res.email + ""
+                },
+                "notes": {
+                  "description": "Order payment for " + res.order_id
+                },
+                "theme": {
+                  "color": "#2300a3"
+                }
+              }
+              var razorpayObject  = new Razorpay(options);
+              razorpayObject.open();
+            }else{
+              alert(res.message);
+            }
+          }
+          
+        })
+      }
+    </script>
+    
+<%- include('../layouts/footer.ejs') -%>

@@ -1,0 +1,44 @@
+<%- include('../loginlayouts/header.ejs') -%>
+
+<!-- main -->
+<div class="w3layouts-main"> 
+	<div class="bg-layer">
+		<h4><%= message %></h4>
+		<div class="header-main">
+			<div class="main-icon">
+				<span class="fa fa-eercast"></span>
+			</div>
+			<div class="header-left-bottom">
+				<form action="" method="post">
+					<div class="icon1">
+						<span class="fa fa-user"></span>
+						<input type="name" name="name" placeholder="User name" required=""/>
+					</div>
+					<div class="icon1">
+						<span class="fa fa-lock"></span>
+						<input type="password" name="password" placeholder="Password" required="" />
+					</div>
+					<div class="login-check">
+						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Keep me logged in</label>
+					</div>
+					<div class="bottom">
+						<button type="submit" class="btn">Sign In</button>
+					</div>
+					<div class="links">
+						<p><a href="#">Forgot Password?</a></p>
+						<div class="clear"></div>
+					</div>
+				</form>	
+			</div>
+		</div>
+		
+		<!-- copyright -->
+		<div class="copyright">
+			<p>© 2019 Slide Login Form . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+		</div>
+		<!-- //copyright --> 
+	</div>
+</div>	
+<!-- //main -->
+
+<%- include('../loginlayouts/footer.ejs') -%>

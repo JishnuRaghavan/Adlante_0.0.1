@@ -1,0 +1,467 @@
+<%- include('../layouts/header.ejs')  -%>
+
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+      <div class="top_menu">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="float-left">
+                <p>Phone: +91-9544669588</p>
+                <p>email: vishnu18js@gmail.com</p>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="float-right">
+                <ul class="right_side">
+                  <li>
+                    <a href="#">
+                    track order
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_menu">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="/homepage">
+            <img src="img/adlante (1).png" alt="" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset w-100"
+              id="navbarSupportedContent"
+              >
+              <div class="row w-100 mr-0">
+                <div class="col-lg-7 pr-0">
+                  <ul class="nav navbar-nav center_nav pull-right">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/shop" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-5 pr-0">
+                  <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                    <form action="searchProduct" method="post" class="row g-3">
+                      <div class="col-auto d-flex align-items-center">
+                        <label for="searchProduct" class="visually-hidden">Search</label>
+                        <input type="text" name="searchQuery" class="form-control" id="searchProduct" placeholder="Search">
+                      </div>
+                      <div class="col-auto">
+                        <li class="nav-item">
+                          <button type="submit" class="icons">
+                          <i class="ti-search" aria-hidden="true"></i>
+                          </button>
+                        </li>
+                      </div>
+                    </form>
+                    <li class="nav-item">
+                      <div class="dropdown">
+                        <a href="#" class="icons dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="ti-user" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                          <a class="dropdown-item" href="myProfile">My Profile</a>
+                          <a class="dropdown-item" href="myProfile">Orders</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!--================Header Menu Area =================-->
+
+    <!--================Home Banner Area =================-->
+    <% if(typeof banner !== 'undefined') { %>
+      <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center" style="background-image: url('/productimg/<%= banner.checkoutBannerImage %>'); background-size: cover; background-position: center">
+          <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+              <div class="mb-3 mb-md-0">
+                <h2>Shop Category</h2>
+                <p>Very us move be blessed multiply night</p>
+              </div>
+              <div class="page_link">
+                <a href="/homepage">Home</a>
+                <a href="">Shop</a>
+                <a href="">Women Fashion</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% } %>
+    <!--================End Home Banner Area =================-->
+
+    <!--================Checkout Area =================-->
+    <% if(typeof products !== 'undefined' && typeof cart !== 'undefined' && typeof subTotal !== 'undefined') { %>
+      <form class="pay-form">
+        <section class="checkout_area section_gap">
+          <div class="container">              
+            <div class="billing_details">
+              <div class="row">
+                <div class="col-lg-8">
+                  <h3>Billing Details</h3>
+                  <address style="background: #F9F9F9;">
+                    <div>
+                      <div>
+                          <div id="primaryAddress">
+                            <% if (typeof user !== 'undefined' && user.address.length > 0) { %>
+                              <div>
+                                <br>
+                                <h4>Shipping Address</h4>
+                                <div class="col-3">
+                                  <br>
+                                </div>
+                                <div class="d-flex flex-direction-horizontal justify-content-between">
+                                  <% const latestAddress = user.address.length > 0
+                                  ? user.address.reduce((prev, current) => {
+                                      return (current.makeDefault > prev.makeDefault) ? current : prev;
+                                    })
+                                  : null; %>
+                                  <div class="col-3">
+                                    <input type="hidden" value="<%=JSON.stringify(latestAddress) %>" name="shippingAddress">
+                                    <input type="hidden" value="<%= latestAddress.userName %>" name="userName" >
+                                    <p><strong><%= latestAddress.userName %></strong></p>
+                                    <p><strong>House Name :</strong><%= latestAddress.houseName %></p>
+                                    <p><strong>Landmark   :</strong><%= latestAddress.landmark %></p>
+                                    <p><strong>postOffice :</strong><%= latestAddress.postOffice %></p>
+                                    <p><strong>District   :</strong><%= latestAddress.district %></p>
+                                  </div>
+                                  <div class="col-3">
+                                    <p><strong>State      :</strong><%= latestAddress.state %></p>
+                                    <p><strong>Country    :</strong><%= latestAddress.country %></p>
+                                    <p><strong>PIN        :</strong><%= latestAddress.pin %></p>
+                                    <p><strong>Contact No.:</strong><%= latestAddress.contactNumber %></p>
+                                  </div>
+                                </div>
+                              </div>
+                            <% } else { %>
+                              <p>No address available</p>
+                            <% } %>
+                          </div>
+                      </div>
+                    </div>
+                  </address>
+                  <br>
+                  <div class="form-check">
+                    <input style="margin: 0px 0px 0px -24px; " id="addressCheckbox" type="checkbox" class="form-check-input" name="billngAndShipping" checked>
+                    <label class="form-check-label" for="addressCheckbox">Billing address same as above.</label>
+                  </div>
+                  <br>
+                  <button class="btn-light">add billing address</button>
+                </div>
+                <div class="col-lg-4">
+                  <br>
+                  <br>
+                  <div class="order_box">
+                    <h2>Your Order</h2>
+                    <ul class="list">
+                      <li>
+                        <a href="#"
+                          >Product
+                          <span>Total</span>
+                        </a>
+                      </li>
+                      <% let totalProductAmount = 0; %>
+                      <% cart.items.forEach((item) => { %>
+                        <% const product = products.find((product) => product._id.toString() === item.productId.toString()); %>
+                        <% const productTotal = product.saleprice * item.quantity; %>
+                        <li>
+                          <a href="#">
+                            <%= product.title %>
+                            <input type="hidden" name="quantity_<%= product._id %>" value="<%= item.quantity %>">
+                            <span class="middle"><%= item.quantity %></span>
+                            <input type="hidden" name="total_<%= product._id %>" value="<%= productTotal %>">
+                            <span class="last"><%= productTotal %></span>
+                          </a>
+                        </li>
+                        <% totalProductAmount += productTotal; %>
+                      <% }) %>
+                    <ul class="list list_2">
+                      <li>
+                        <a href="#"
+                          >Discount
+                          <input type="hidden" name="discountValue" value="<%= (discount+(totalProductAmount-subTotal)) %>">
+                          <span><%= (discount+(totalProductAmount-subTotal))*-1 %></span>
+                          <input type="hidden" name="subTotal" value="<%= parseInt(subTotal) %>">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#"
+                          >Subtotal
+                          <span><%= subTotal %></span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#"
+                          >Shipping
+                          <span>Flat rate: $50.00</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#"
+                          >Total
+                          <span><%= parseInt(subTotal)+50-user.rewardBalance %></span><span id="reward" style="background-color: gold;" > yaay!!! your reward has been applied.</span>
+                          <input type="hidden" name="total" value="<%= parseInt(subTotal)+50-user.rewardBalance %>">
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="creat_account form-check">
+                      <input class="form-check-input" type="checkbox" id="f-option4" name="selector" />
+                      <label class="form-check-class" for="f-option4">I’ve read and accept the </label>
+                      <a href="#">terms & conditions*</a>
+                    </div>
+                    <button class="main_btn" type="submit">Proceed to Payment</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </form>
+    <% } %>
+    <!--================End Checkout Area =================-->
+
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Top Products</h4>
+            <ul>
+              <li><a href="#">Managed Website</a></li>
+              <li><a href="#">Manage Reputation</a></li>
+              <li><a href="#">Power Tools</a></li>
+              <li><a href="#">Marketing Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Features</h4>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Experts</a></li>
+              <li><a href="#">Agencies</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 single-footer-widget">
+            <h4>Newsletter</h4>
+            <p>You can trust us. we only send promo offers,</p>
+            <div class="form-wrap" id="mc_embed_signup">
+              <form method="get" class="form-inline">
+                <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Your Email Address '" required="" type="email">
+                <button class="click-btn btn btn-default">Subscribe</button>
+                <div style="position: absolute; left: -5000px;">
+                  <input tabindex="-1" value="" type="text">
+                </div>
+  
+                <div class="info"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+          <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">jis</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          <div class="col-lg-4 col-md-12 footer-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-behance"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/stellar.js"></script>
+    <script src="/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="/vendors/isotope/isotope-min.js"></script>
+    <script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/mail-script.js"></script>
+    <script src="/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="/vendors/counter-up/jquery.counterup.js"></script>
+    <script src="/theme.js"></script>
+    <script>
+      function orderConformation(){
+        alert('your order has been confirmed');
+      }
+    </script>
+    <!-- Inside index.html -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.pay-form').submit(function (e) {
+      e.preventDefault();
+
+      var formData = $(this).serialize();
+      console.log(formData)
+
+      $.ajax({
+        url: "/confirmOrder",
+        type: "POST",
+        data: formData,
+        success: function (res) {
+
+          if (res.success) {
+            var options = {
+              "key": "" + res.key_id + "",
+              "amount": res.total*100,
+              "currency": "INR",
+              "name": "ADLANTE", // Change this to your company name
+              "description": "Order payment", // Change this to a suitable description
+              "image": "https://dummyimage.com/600x400/000/fff",
+              "order_id": "" + res.orders[0].order_id + "",
+              // In your client-side JavaScript
+
+              // Inside the Razorpay success handler
+              "handler": function (response) {
+                var orderId = res.orders[0].order_id;
+
+                // Check the response to determine success or failure
+                if (response.razorpay_payment_id) {
+                  // Payment successful
+                  $.ajax({
+                    url: "/updateOrderPaymentSuccess",
+                    type: "POST",
+                    data: { orderId: orderId },
+                    success: function (updateRes) {
+                      if (updateRes.success) {
+                        window.location.href  = "/ordersuccess";
+                        // Redirect or perform additional actions on success
+                        // window.open("/","_self")
+                      } else {
+                        alert(updateRes.msg);
+                      }
+                    },
+                    error: function () {
+                      alert("Error updating order payment status");
+                    }
+                  });
+                } else {
+                  // Payment failed
+                  $.ajax({
+                    url: "/updateOrderPaymentFailure",
+                    type: "POST",
+                    data: { orderId: orderId },
+                    success: function (updateRes) {
+                      if (updateRes.success) {
+                        window.location.href  = "/orderFailure"
+                        // Redirect or perform additional actions on failure
+                      } else {
+                        alert(updateRes.msg);
+                      }
+                    },
+                    error: function () {
+                      alert("Error updating order payment status");
+                    }
+                  });
+                }
+              },
+
+              "prefill": {
+                "contact": "" + res.contact + "",
+                "name": "ADLANTE", // Change this to your company name
+                "email": "" + res.email + ""
+              },
+              "notes": {
+                "description": "Order payment for " + res.order_id
+              },
+              "theme": {
+                "color": "#2300a3"
+              }
+            };
+            console.log("Amount for Razorpay:", res.total * 100);
+
+            var razorpayObject = new Razorpay(options);
+            razorpayObject.on('payment.failed', function (response) {
+              alert("Payment Failed");
+            });
+
+            // Open the Razorpay payment form
+            razorpayObject.open();
+          } else {
+            alert(res.msg);
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  const reward  = document.getElementById('reward');
+  if(`<%= user.rewardBalance %>` === 0){
+    reward.style.display  = "none";
+  }
+</script>
+
+
+
+<%- include('../layouts/footer.ejs')  -%>

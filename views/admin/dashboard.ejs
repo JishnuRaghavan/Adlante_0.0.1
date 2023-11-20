@@ -1,0 +1,655 @@
+<%- include('../adminlayouts/header.ejs') -%>
+<main id="main-wrapper" class="main-wrapper">
+  <div class="header">
+    <!-- navbar -->
+    <div class="navbar-custom navbar navbar-expand-lg">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-block d-md-none" href="/admin/adminhome">
+        <img src="/img/adlante.jpg" alt="Image">
+        </a>
+        <a id="nav-toggle" href="#!" class="ms-auto ms-md-0 me-0 me-lg-3 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-text-indent-left text-muted" viewBox="0 0 16 16">
+            <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </a>
+        <div class="d-none d-md-none d-lg-block">
+          <!-- Form -->
+          <form action="#">
+            <div class="input-group ">
+              <input class="form-control rounded-3" type="search" value="" id="searchInput" placeholder="Search">
+              <span class="input-group-append">
+                <button class="btn  ms-n10 rounded-0 rounded-end" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-search text-dark">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!--Navbar nav -->
+        <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
+          <a href="#" class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+          </a>
+          </li>
+          <li class="dropdown ms-2">
+            <a class="rounded-circle" href="#!" role="button" id="dropdownUser"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md avatar-indicators avatar-online">
+                <img alt="avatar" src="/admin/images/avatar/JISHNU SUIT.jpg" class="rounded-circle">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownUser">
+              <div class="px-4 pb-0 pt-2">
+                <div class="lh-1 ">
+                  <h5 class="mb-1"> Jishnu Raghavan</h5>
+                  <a href="#!" class="text-inherit fs-6">View my profile</a>
+                </div>
+                <div class=" dropdown-divider mt-3 mb-2"></div>
+              </div>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
+                  Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="activity"></i>Activity Log
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="settings"></i>Settings
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/signout">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="power"></i>Sign Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbar vertical -->
+  <!-- Sidebar -->
+  <div class="navbar-vertical navbar nav-dashboard">
+    <div class="h-100" data-simplebar>
+      <!-- Brand logo -->
+      <a class="navbar-brand" href="/adminhome">
+      <img src="/img/adlante.jpg" alt="dash ui - bootstrap 5 admin dashboard template">
+      </a>
+      <!-- Navbar nav -->
+      <ul class="navbar-nav flex-column" id="sideNavbar">
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link has-arrow  collapsed " href="#!"
+            data-bs-toggle="collapse" data-bs-target="#navDashboard" aria-expanded="false"
+            aria-controls="navDashboard">
+          <i data-feather="home" class="nav-icon me-2 icon-xxs" ></i>
+          Dashboard
+          </a>
+          <div id="navDashboard" class="collapse "
+            data-bs-parent="#sideNavbar">
+            <ul class="nav flex-column">
+            </ul>
+          </div>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <div class="navbar-heading">Website</div>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link has-arrow  collapsed " href="#!"
+            data-bs-toggle="collapse" data-bs-target="#navecommerce" aria-expanded="false"
+            aria-controls="navecommerce">
+          <i data-feather="shopping-cart" class="nav-icon me-2 icon-xxs" >
+          </i> Ecommerce
+          </a>
+          <div id="navecommerce" class="collapse "
+            data-bs-parent="#sideNavbar">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link has-arrow active" href="/admin/productList">
+                Product List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/productEdit">
+                Add Product
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/categoryList">
+                Category List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/orderList">
+                Order List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/ecommerce-customer">
+                Customer
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/addCoupon">
+                Coupon
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/CouponList">
+                Coupon List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/bannerManagement">
+                banner management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/brandManagement">
+                brand management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/offerManagement">
+                Offers
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="app-content">
+    <!-- Container fluid -->
+      <div class="app-content-area">
+        <div class="container-fluid">
+          <div id="layout-wrapper">
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+              <div class="page-content">
+                <div class="container-fluid">
+                  <!-- start page title -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+                        <div class="page-title-right">
+                          <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end page title -->
+                  <div class="row">
+                    <div class="col-xl-4">
+                      <div class="card overflow-hidden">
+                        <div class="bg-primary bg-soft">
+                          <div class="row">
+                            <div class="col-7">
+                              <div class="text-primary p-3">
+                                <h5 class="text-primary">Welcome Back !</h5>
+                                <p>Skote Dashboard</p>
+                              </div>
+                            </div>
+                            <div class="col-5 align-self-end">
+                              <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body pt-0">
+                          <div class="row">
+                            <div class="col-sm-4">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <button onclick="dailySale()">daily</button>
+                          <button onclick="weeklySale()">weekly</button>
+                          <button onclick="monthlySale()">monthly</button>
+                          <button onclick="yearlySale()">Yearly</button>
+                          <h4 class="card-title mb-4"><span id="periodOne"><%= dailyReport.period %></span> Earning</h4>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <input type="hidden" value="day" id="period">
+                              <p class="text-muted">This <span id="periodTwo">day</span></p>
+                              <h3><span id="totalEarnings">&#8377;<%= dailyReport.totalEarnings %></span></h3>
+                              <p class="text-muted"><span id="percentChange" class="text-success me-2"><%= dailyReport.percentChange %>&#37;From previous period</p>
+                              <div class="mt-4">
+                                <a onclick="salesReportTable()" class="btn btn-primary waves-effect waves-light btn-sm">View sales report <i class="mdi mdi-arrow-right ms-1"></i></a>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="mt-4 mt-sm-0">
+                                <div id="radialBar-chart" data-colors='["--bs-primary"]' class="apex-charts"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-muted mb-0">We craft digital, graphic and dimensional thinking.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-8">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-sm-flex flex-wrap">
+                            <h4 class="card-title mb-4">Total Earning</h4>
+                            <div class="ms-auto">
+                              <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                  <a class="nav-link" onclick="dailyChart()" href="">day</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" onclick="monthlyChart()" href="">Month</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link active" onclick="yearlyChart()" href="">Year</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div id="chart" class="apex-charts" data-colors='["--bs-primary", "--bs-warning", "--bs-success"]' dir="ltr"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="d-sm-flex flex-wrap">
+                          <h4 class="card-title mb-4">top sold category</h4>
+                          <div class="ms-auto">
+                            <ul class="nav nav-pills">
+                              <li class="nav-item">
+                                <a class="nav-link" onclick="dailyCategoryChart()" href="">day</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" onclick="monthlyCategoryChart()" href="">Month</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link active" onclick="yearlyCategoryChart()" href="">Year</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div id="categoryChart" class="apex-charts" data-colors='["--bs-primary", "--bs-warning", "--bs-success"]' dir="ltr"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- container-fluid -->
+              </div>
+              <!-- End Page-content -->
+            </div>
+            <!-- end slimscroll-menu-->
+          </div>
+          <!-- /Right-bar -->
+          <!-- Right bar overlay-->
+          <div class="rightbar-overlay"></div>
+        </div>
+      </div>
+  </div>
+</main>
+<script src="/admin/libs/dropzone/dist/min/dropzone.min.js"></script>
+<!-- flatpickr -->
+<script src="/admin/libs/flatpickr/dist/flatpickr.min.js"></script>
+<!-- quill js -->
+<script src="/admin/libs/quill/dist/quill.min.js"></script>
+<script src="/admin/libs/%40yaireo/tagify/dist/tagify.min.js"></script>
+<!-- Libs JS -->
+<script src="/admin/libs/jquery/dist/jquery.min.js"></script>
+<script src="/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/libs/feather-icons/dist/feather.min.js"></script>
+<script src="/admin/libs/simplebar/dist/simplebar.min.js"></script>
+<!-- Theme JS -->
+<script src="/admin/js/theme.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+  function dailySale(){
+    $.ajax({
+      url:"/admin/dailySale",
+      method:'GET',
+      success: function(dailyReport){
+        document.getElementById('periodOne').textContent = dailyReport.period;
+        document.getElementById('periodTwo').textContent = 'day' // Assuming you want "day"   for "daily", etc.
+        document.getElementById('totalEarnings').innerHTML = `&#8377;${dailyReport.totalEarnings}`;
+        document.getElementById('percentChange').innerHTML = `${dailyReport.percentChange}&#37; From previous period`;
+        document.getElementById('period').value = "day";
+
+      },
+      error: function(error) {
+      console.log("Error fetching daily report:", error);
+      }
+    })
+  }
+
+</script>
+<script>
+  function monthlySale(){
+    
+    $.ajax({
+      url:"/admin/monthlySale",
+      method:'GET',
+      success: function(monthlyReport){
+        document.getElementById('periodOne').textContent = monthlyReport.period;
+        document.getElementById('periodTwo').textContent = 'month'; // Assuming you want "month" for "monthly", etc.
+        document.getElementById('totalEarnings').innerHTML = `&#8377;${monthlyReport.totalEarnings}`;
+        document.getElementById('percentChange').innerHTML = `${monthlyReport.percentChange}&#37; From previous period`;
+        document.getElementById('period').value = "month"
+
+      },
+      error: function(error) {
+        console.log("Error fetching monthly report:", error);
+      }
+    });
+  }
+</script>
+<script>
+  function weeklySale(){
+
+    $.ajax({
+      url:"/admin/weeklySale",
+      method:'GET',
+      success: function(weeklyReport){
+        document.getElementById('periodOne').textContent  = weeklyReport.period;
+        document.getElementById('periodTwo').textContent  = 'week';
+        document.getElementById('totalEarnings').innerHTML= `&#8377;${weeklyReport.totalEarnings}`;
+        document.getElementById('percentChange').innerHTML= `${weeklyReport.percentChange}&#37; From previous period`;
+        document.getElementById('period').value = "week";
+      },
+      error: function(error){
+        console.log("Error fetching weekly report:",error);
+      }
+    })
+  }
+</script>
+<script>
+  function yearlySale(){
+
+    $.ajax({
+      url:"/admin/yearlySale",
+      method:'GET',
+      success: function(yearlySale){
+        document.getElementById('periodOne').textContent  = yearlySale.period;
+        document.getElementById('periodTwo').textContent  = "year";
+        document.getElementById('totalEarnings').innerHTML= `&#8377;${yearlySale.totalEarnings}`;
+        document.getElementById('percentChange').innerHTML= `${yearlySale.percentChange}&#37; From previous period`;
+        document.getElementById('period').value = "year";
+      },
+      error: function(error){
+        console.log("Error fetching yearly report:",error);
+      }
+    })
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+  function dailyChart() {
+    event.preventDefault();
+    $.ajax({
+      url: "/admin/dailyChart",
+      method: 'GET', // Assuming it's a GET request
+      success: function(response) {
+        // Assuming response has properties totalEarningsArray and dateArray
+
+        var options = {
+          chart: {
+            type: 'line'
+          },
+          series: [{
+            name: 'sales',
+            data: response.totalEarningsArray
+          }],
+          xaxis: {
+            categories: response.dateArray
+          }
+        };
+  
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+      },
+      error: function(error) {
+        console.log("Error fetching daily chart data:", error);
+      }
+    });
+  }
+</script>
+<script>
+  function monthlyChart() {
+    event.preventDefault();
+    $.ajax({
+      url: "/admin/monthlyChart",
+      method: 'GET', // Assuming it's a GET request
+      success: function(response) {
+        // Assuming response has properties totalEarningsArray and dateArray
+
+        var options = {
+          chart: {
+            type: 'line'
+          },
+          series: [{
+            name: 'sales',
+            data: response.totalEarningsArray
+          }],
+          xaxis: {
+            categories: response.monthArray
+          }
+        };
+  
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+      },
+      error: function(error) {
+        console.log("Error fetching daily chart data:", error);
+      }
+    });
+  }
+</script>
+<script>
+  function yearlyChart() {
+    event.preventDefault();
+    $.ajax({
+      url: "/admin/yearlyChart",
+      method: 'GET', // Assuming it's a GET request
+      success: function(response) {
+        // Assuming response has properties totalEarningsArray and dateArray
+
+        var options = {
+          chart: {
+            type: 'line'
+          },
+          series: [{
+            name: 'sales',
+            data: response.totalEarningsArray
+          }],
+          xaxis: {
+            categories: response.yearArray
+          }
+        };
+  
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+      },
+      error: function(error) {
+        console.log("Error fetching daily chart data:", error);
+      }
+    });
+  }
+</script>
+<script>
+  function salesReportTable(){
+
+    const period = document.getElementById('period').value;
+    console.log(period);
+  }
+</script>
+<script>
+  function salesReportTable() {
+    // Get the value of the hidden input field
+    var period = document.getElementById('period').value;
+
+    // Create a new form element
+    var form = document.createElement('form');
+    form.id = 'reportForm';
+    form.method = 'GET'; // You can change the method as needed
+
+    // Create an input element to hold the period value
+    var periodInput = document.createElement('input');
+    periodInput.type = 'hidden';
+    periodInput.name = 'period';
+    periodInput.value = period;
+
+    // Append the input to the form
+    form.appendChild(periodInput);
+
+    // Append the form to the body (you can append it to any other element)
+    document.body.appendChild(form);
+
+    // Update the action attribute based on the value of the period
+    if (period === "day") {
+      form.action = "/admin/salesReportDay";
+    } else if (period === "week") {
+      form.action = "/admin/salesReportWeek";
+    } else if (period === "month") {
+      form.action = "/admin/salesReportMonth";
+    } else if (period === "year") {
+      form.action = "/admin/salesReportYear";
+    }
+
+    // Submit the form
+    form.submit();
+  }
+</script>
+<script>
+  function yearlyCategoryChart() {
+    event.preventDefault();
+    $.ajax({
+      url: "/admin/yearlyCategoryChart",
+      method: 'GET',
+      success: function (response) {
+        console.log(response)
+        var options = {
+          chart: {
+            type: 'bar'
+          },
+          plotOptions: {
+            bar: {
+              horizontal: true,
+              barWidth: '50%',
+            }
+          },
+          series: [{
+            data: response
+          }]
+        };
+  
+        var chart = new ApexCharts(document.querySelector("#categoryChart"), options);
+        chart.render();
+      },
+      error: function (error) {
+        console.log("Error fetching yearly category chart data:", error);
+      },
+    });
+  }
+</script>
+<script>
+  function monthlyCategoryChart() {
+    event.preventDefault();
+    $.ajax({
+      url: "/admin/monthlyCategoryChart",
+      method: 'GET',
+      success: function (response) {
+        console.log(response);
+        var options = {
+          chart: {
+            type: 'bar'
+          },
+          plotOptions: {
+            bar: {
+              horizontal: true,
+              barWidth: '50%',
+            }
+          },
+          series: [{
+            data: response
+          }]
+        };
+  
+        var chart = new ApexCharts(document.querySelector("#categoryChart"), options);
+        chart.render();
+      },
+      error: function (error) {
+        console.log("Error fetching monthly category chart data:", error);
+      },
+    });
+  }
+
+  function dailyCategoryChart() {
+    event.preventDefault();
+    $.ajax({
+      url: "/admin/dailyCategoryChart",
+      method: 'GET',
+      success: function (response) {
+        console.log(response);
+        var options = {
+          chart: {
+            type: 'bar'
+          },
+          plotOptions: {
+            bar: {
+              horizontal: true,
+              barWidth: '50%',
+            }
+          },
+          series: [{
+            data: response
+          }]
+        };
+  
+        var chart = new ApexCharts(document.querySelector("#categoryChart"), options);
+        chart.render();
+      },
+      error: function (error) {
+        console.log("Error fetching daily category chart data:", error);
+      },
+    });
+  }
+</script>
+
+
+
+<%- include('../adminlayouts/footer.ejs') -%>

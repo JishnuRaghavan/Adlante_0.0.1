@@ -1,0 +1,325 @@
+<%- include('../adminlayouts/header.ejs') -%>
+<main id="main-wrapper" class="main-wrapper">
+  <div class="header">
+    <!-- navbar -->
+    <div class="navbar-custom navbar navbar-expand-lg">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-block d-md-none" href="/admin/adminhome">
+        <img src="/img/adlante.jpg" alt="Image">
+        </a>
+        <a id="nav-toggle" href="#!" class="ms-auto ms-md-0 me-0 me-lg-3 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-text-indent-left text-muted" viewBox="0 0 16 16">
+            <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </a>
+        <div class="d-none d-md-none d-lg-block">
+          <!-- Form -->
+          <form action="#">
+            <div class="input-group ">
+              <input class="form-control rounded-3" type="search" value="" id="searchInput" placeholder="Search">
+              <span class="input-group-append">
+                <button class="btn  ms-n10 rounded-0 rounded-end" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-search text-dark">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!--Navbar nav -->
+        <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
+          <a href="#" class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+          </a>
+          </li>
+          <li class="dropdown ms-2">
+            <a class="rounded-circle" href="#!" role="button" id="dropdownUser"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md avatar-indicators avatar-online">
+                <img alt="avatar" src="/admin/images/avatar/JISHNU SUIT.jpg" class="rounded-circle">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownUser">
+              <div class="px-4 pb-0 pt-2">
+                <div class="lh-1 ">
+                  <h5 class="mb-1"> Jishnu Raghavan</h5>
+                  <a href="#!" class="text-inherit fs-6">View my profile</a>
+                </div>
+                <div class=" dropdown-divider mt-3 mb-2"></div>
+              </div>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
+                  Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="activity"></i>Activity Log
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="settings"></i>Settings
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/signout">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="power"></i>Sign Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbar vertical -->
+  <!-- Sidebar -->
+  <div class="navbar-vertical navbar nav-dashboard">
+    <div class="h-100" data-simplebar>
+      <!-- Brand logo -->
+      <a class="navbar-brand" href="/adminhome">
+      <img src="/img/adlante.jpg" alt="dash ui - bootstrap 5 admin dashboard template">
+      </a>
+      <!-- Navbar nav -->
+      <ul class="navbar-nav flex-column" id="sideNavbar">
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link has-arrow  collapsed " href="/admin/dashboard"
+            data-bs-toggle="collapse" data-bs-target="#navDashboard" aria-expanded="false"
+            aria-controls="navDashboard">
+          <i data-feather="home" class="nav-icon me-2 icon-xxs" ></i>
+          Dashboard
+          </a>
+          <div id="navDashboard" class="collapse "
+            data-bs-parent="#sideNavbar">
+            <ul class="nav flex-column">
+            </ul>
+          </div>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <div class="navbar-heading">Website</div>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link has-arrow  collapsed " href="#!"
+            data-bs-toggle="collapse" data-bs-target="#navecommerce" aria-expanded="false"
+            aria-controls="navecommerce">
+          <i data-feather="shopping-cart" class="nav-icon me-2 icon-xxs" >
+          </i> Ecommerce
+          </a>
+          <div id="navecommerce" class="collapse "
+            data-bs-parent="#sideNavbar">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/productList">
+                Product List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/productEdit">
+                Add Product
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/orderList">
+                Category List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow active" href="/admin/categoryList">
+                Order List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/ecommerce-customer">
+                Customer
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/addCoupon">
+                Coupon
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/CouponList">
+                Coupon List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/bannerManagement">
+                banner management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/brandManagement">
+                brand management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/offerManagement">
+                Offers
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Page Content -->
+  <% if(typeof orders !== 'undefined') { %>
+  <div id="app-content">
+    <!-- Container fluid -->
+    <div class="app-content-area">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-12">
+            <!-- Page header -->
+            <div class="mb-5">
+              <h3 class="mb-0 ">Sales Report</h3>
+            </div>
+            <div class="col-md-6 text-lg-end mb-3">
+              <button class="btn btn-light me-1" id="exportPdfButton">Export to PDF</button>
+              <button class="btn btn-light me-1" id="exportExcelButton">Export to Excel</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- row -->
+          <div class="row">
+            <div class="col-12">
+              <!-- card -->
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="table-responsive table-card">
+                    <table id="salesReportTable" class="table text-nowrap mb-0 table-centered table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th class=" pe-0  ">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value=""
+                                id="checkAll">
+                              <label class="form-check-label" for="checkAll">
+                              </label>
+                            </div>
+                          </th>
+                          <th class="ps-1">Order ID</th>
+                          <th>Name</th>
+                          <th>Date</th>
+                          <th>Payment Status</th>
+                          <th>Total</th>
+                          <th>Order Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% orders.forEach((order)=>{ %>
+                        <tr>
+                          <td class=" pe-0">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="<%= order.orderId %>"
+                                id="orderCheckbox_<%= order.orderId %>">
+                              <label class="form-check-label" for="orderCheckbox_<%= order.orderId %>">
+                              </label>
+                            </div>
+                          </td>
+                            <td class="ps-1">
+                              <button class="btn btn-info" type="submit" name="orderId" value="<%= order.orderId %>"><%= order.orderId %></button>
+                            </td>
+                          <td><%= order.userName %></td>
+                          <td><%= order.date.toString().substring(0,24) %></td>
+                          <td><span class="badge bg-success"><%= order.paymentStatus %></span></td>
+                          <td><%= order.subtotal %></td>
+                          <td>
+                            <span class="badge badge-info-soft"><%= order.orderStatus %></span></td>
+                        </tr>
+                        <% }) %>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            total
+                          </td>
+                          <td id="totalValue"></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</main>
+<!-- Scripts -->
+<!-- Libs JS -->
+<script src="/admin/libs/jquery/dist/jquery.min.js"></script>
+<script src="/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/libs/feather-icons/dist/feather.min.js"></script>
+<script src="/admin/libs/simplebar/dist/simplebar.min.js"></script>
+<!-- Theme JS -->
+<!-- Theme JS -->
+<script src="/admin/js/theme.min.js"></script>
+<script>
+  const totalValue = document.getElementById('totalValue');
+  const total = parseFloat(`<%= total %>`);
+  if(total >= 0){
+    totalValue.textContent  = total;
+  }
+</script>
+
+<script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+<script>
+  document.getElementById('exportPdfButton').addEventListener('click', () => {
+  const table = document.getElementById('salesReportTable');
+
+  html2pdf(table, {
+    margin: 10,
+    filename: 'table.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+  });
+});
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+<script>
+  document.getElementById('exportExcelButton').addEventListener('click', () => {
+    const table = document.getElementById('salesReportTable');
+    const wb = XLSX.utils.table_to_book(table);
+    XLSX.writeFile(wb, 'table.xlsx');
+  });
+</script>
+
+
+<%- include('../adminlayouts/footer.ejs') -%>

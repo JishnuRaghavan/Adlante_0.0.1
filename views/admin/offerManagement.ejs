@@ -1,0 +1,303 @@
+<%- include('../adminlayouts/header.ejs') -%>
+<main id="main-wrapper" class="main-wrapper">
+  <div class="header">
+    <!-- navbar -->
+    <div class="navbar-custom navbar navbar-expand-lg">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-block d-md-none" href="/admin/adminhome">
+        <img src="/img/adlante.jpg" alt="Image">
+        </a>
+        <a id="nav-toggle" href="#!" class="ms-auto ms-md-0 me-0 me-lg-3 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-text-indent-left text-muted" viewBox="0 0 16 16">
+            <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </a>
+        <div class="d-none d-md-none d-lg-block">
+          <!-- Form -->
+          <form action="#">
+            <div class="input-group ">
+              <input class="form-control rounded-3" type="search" value="" id="searchInput" placeholder="Search">
+              <span class="input-group-append">
+                <button class="btn  ms-n10 rounded-0 rounded-end" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-search text-dark">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!--Navbar nav -->
+        <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
+          <a href="#" class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+          </a>
+          </li>
+          <li class="dropdown ms-2">
+            <a class="rounded-circle" href="#!" role="button" id="dropdownUser"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md avatar-indicators avatar-online">
+                <img alt="avatar" src="/admin/images/avatar/JISHNU SUIT.jpg" class="rounded-circle">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownUser">
+              <div class="px-4 pb-0 pt-2">
+                <div class="lh-1 ">
+                  <h5 class="mb-1"> Jishnu Raghavan</h5>
+                  <a href="#!" class="text-inherit fs-6">View my profile</a>
+                </div>
+                <div class=" dropdown-divider mt-3 mb-2"></div>
+              </div>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
+                  Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="activity"></i>Activity Log
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="settings"></i>Settings
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/signout">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="power"></i>Sign Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbar vertical -->
+  <!-- Sidebar -->
+  <div class="navbar-vertical navbar nav-dashboard">
+    <div class="h-100" data-simplebar>
+      <!-- Brand logo -->
+      <a class="navbar-brand" href="/adminhome">
+      <img src="/img/adlante.jpg" alt="dash ui - bootstrap 5 admin dashboard template">
+      </a>
+      <!-- Navbar nav -->
+      <ul class="navbar-nav flex-column" id="sideNavbar">
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/dashboard" aria-expanded="false">
+          <i data-feather="home" class="nav-icon me-2 icon-xxs" ></i>
+          Dashboard
+          </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <div class="navbar-heading">Website</div>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link has-arrow  collapsed " href="#!"
+            data-bs-toggle="collapse" data-bs-target="#navecommerce" aria-expanded="false"
+            aria-controls="navecommerce">
+          <i data-feather="shopping-cart" class="nav-icon me-2 icon-xxs" >
+          </i> Ecommerce
+          </a>
+          <div id="navecommerce" class="collapse "
+            data-bs-parent="#sideNavbar">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/productList">
+                Product List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/productEdit">
+                Add Product
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/categoryList">
+                Category List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/orderList">
+                Order List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/ecommerce-customer">
+                Customer
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/addCoupon">
+                Coupon
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/CouponList">
+                Coupon List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/bannerManagement">
+                banner management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/brandManagement">
+                brand management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow active"
+                  href="/admin/offerManagement">
+                Offers
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Page Content -->
+  <div id="app-content">
+    <!-- Container fluid -->
+    <div class="app-content-area">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-12">
+            <!-- Page header -->
+            <div class="mb-5">
+              <h3 class="mb-0 ">Offers</h3>
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- row -->
+          <div class="row">
+            <div class="col-12">
+              <!-- card -->
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="table-responsive table-card">
+                    <table class="table text-nowrap mb-0 table-centered table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th class="ps-1">categories</th>
+                          <th>valid from</th>
+                          <th>valid to</th>
+                          <th>usageLimit</th>
+                          <th>offer type</th>
+                          <th>offer value</th>
+                          <th>Offer Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% if(typeof categories !== 'undefined') { %>
+                        <tr>
+                          <form action="/admin/categoryOffer" method="post">
+                            <td>
+                              <div class="mb-3">
+                              <!-- select menu for Size -->
+                                <select class="form-select" aria-label="Category" name="maincategory" name="category">
+                                  <% categories.forEach((category)=> { %>
+                                  <option value="<%= category.maincategory %>"><%= category.maincategory %></option>
+                                  <% }) %>
+                                </select>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="mb-3">
+                                <input type="text" name="startDate" class="form-control datepicker-here" id="form-coupon/start-date" placeholder="mm-dd-yyyy" data-auto-close="true" data-language="en" required autocomplete="off"/>
+                              </div>
+                            </td>
+                            <td>
+                              <div>
+                                <input type="text" class="form-control datepicker-here" name="endDate" id="form-coupon/end-date" data-auto-close="true" placeholder="mm-dd-yyyy" data-language="en" required autocomplete="off"/>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="mb-3">
+                                <input name="usageLimit" type="number" class="form-control" id="form-coupon/limit" value="100" required/>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="mb-3">
+                                <select class="form-select" aria-label="type" name="offerType">
+                                  <option value="percentage">percentage</option>
+                                  <option value="fixed amount">Fixed amount</option>
+                                  <option value="free delivery">Free delivery</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="mb-3">
+                                <input name="offerValue"  type="number" class="form-control" id="form-coupon/value" value="10" required/>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="mb-3">
+                                <!-- select menu for Size -->
+                                <select class="form-select" aria-label="Active" name="active">
+                                  <option value="enabled">enabled</option>
+                                  <option value="disabled">disabled</option>
+                                </select>
+                              </div>
+                            </td>
+                            <td>
+                              <button class="btn btn-primary" type="submit">
+                                create
+                              </button>
+                            </td>
+                          </form>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Scripts -->
+<!-- Libs JS -->
+<script src="/admin/libs/jquery/dist/jquery.min.js"></script>
+<script src="/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/libs/feather-icons/dist/feather.min.js"></script>
+<script src="/admin/libs/simplebar/dist/simplebar.min.js"></script>
+<script src="/admin/stroyka/js/calendar.js"></script>
+<script src="/admin/stroyka/vendor/fullcalendar/main.min.js"></script>
+<script src="/admin/stroyka/vendor/air-datepicker/js/datepicker.min.js"></script>
+<script src="/admin/stroyka/vendor/air-datepicker/js/i18n/datepicker.en.js"></script>
+
+<!-- Theme JS -->
+<script src="/admin/js/theme.min.js"></script>
+<%- include('../adminlayouts/footer.ejs') -%>

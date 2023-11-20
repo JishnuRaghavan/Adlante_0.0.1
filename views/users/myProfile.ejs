@@ -1,0 +1,915 @@
+<%- include('../layouts/header.ejs') -%>
+  <!--================Header Menu Area =================-->
+  <header class="header_area">
+    <div class="top_menu">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="float-left">
+              <p>Phone: +91-9544669588</p>
+              <p>email: vishnu18js@gmail.com</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="float-right">
+              <ul class="right_side">
+                <li>
+                  <a href="">
+                  track order
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                  Contact Us
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main_menu">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="/homepage">
+          <img src="img/adlante (1).png" alt="" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset w-100"
+            id="navbarSupportedContent"
+            >
+            <div class="row w-100 mr-0">
+              <div class="col-lg-7 pr-0">
+                <ul class="nav navbar-nav center_nav pull-right">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/homepage">Home</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a href="/shop" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-5 pr-0">
+                <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                  <form action="searchProduct" method="post" class="row g-3">
+                    <div class="col-auto d-flex align-items-center">
+                      <label for="searchProduct" class="visually-hidden">Search</label>
+                      <input type="text" name="searchQuery" class="form-control" id="searchProduct" placeholder="Search">
+                    </div>
+                    <div class="col-auto">
+                      <li class="nav-item">
+                        <button type="submit" class="icons">
+                        <i class="ti-search" aria-hidden="true"></i>
+                        </button>
+                      </li>
+                    </div>
+                  </form>
+                  <li class="nav-item">
+                    <a href="cartPage" class="icons position-relative">
+                      <i class="ti-shopping-cart">
+                        <span class="badge badge-danger rounded-circle position-absolute top-50 end-(-1)">
+                          <% if (cart && cart.items !== null) { %>
+                            <%= cart.items.length %>
+                          <% } else { %>
+                             0
+                          <% } %>
+                        </span>
+                      </i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <div class="dropdown">
+                      <a href="#" class="icons dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ti-user" aria-hidden="true"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="myProfile">My Profile</a>
+                        <a class="dropdown-item" href="myProfile">Orders</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+<!--================Header Menu Area =================-->
+<!-- ...:::: Start Account Dashboard Section:::... -->
+<div class="account-dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <!-- Nav tabs -->
+        <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
+          <ul role="tablist" class="nav flex-column dashboard-list">
+            <li><a href="#dashboard" data-bs-toggle="tab"
+              class="nav-link btn btn-block btn-md btn-black-default-hover active">My Profile</a>
+            </li>
+            <li> <a href="#orders" data-bs-toggle="tab"
+              class="nav-link btn btn-block btn-md btn-black-default-hover">Orders</a></li>
+            <li><a href="#address" data-bs-toggle="tab"
+              class="nav-link btn btn-block btn-md btn-black-default-hover">Addresses</a></li>
+            <li><a href="/logout"
+              class="nav-link btn btn-block btn-md btn-black-default-hover">logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-9 col-lg-9">
+        <!-- Tab panes -->
+        <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
+          <div class="tab-pane fade show active" id="dashboard">
+            <div class="container profile-container">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+                  <br><br>
+                  <div>
+                    your referal code is <%= user.referCode %>
+                    <button></button>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <% if(typeof user !== 'undefined') { %>
+                  <h2 class="mb-4">User Profile</h2>
+                  <div style="display: flex; align-items: center;" class="mb-3">
+                    <strong>Name:</strong><%= user.name %>
+                    <div class="mb-3" id="newUserName" style="display: none;">
+                      <input type="text" placeholder="enter new name" id="userNameNew" class="form-control" style="margin-top: 10px;">
+                    </div>
+                  </div>                  
+                  <div class="mb-3">
+                    <strong>Email:</strong> <%= user.email %>
+                  </div>
+                  <div class="mb-3" style="display: flex; align-items: center;">
+                    <strong>Phone:</strong> <%= user.mobile %>
+                    <div class="mb-3" id="newUserMobile" style="display: none;">
+                      <input type="number" placeholder="enter new number" class="form-control" id="userMobileNew" style="margin-top: 10px;">
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <strong>Joined On:</strong> <%= date %>
+                  </div>
+                  <button class="btn btn-primary" id="editProfileButton" onclick="editProfile()">Edit Profile</button>
+                  <button class="btn btn-primary" id="saveButton" style="display: none;" onclick="saveProfileChanges()">save</button>
+                  <button><a href="/loadChangePassword">change password</a></button>
+                  <% } %>
+                </div>
+                <div style="display: none;">
+                  <div class="d-flex">
+                    <div class="toast-body">
+                      Hello, world! This is a toast message.
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="orders">
+            <% if (typeof orders !== 'undefined' && orders.length > 0) { %>
+              <h4>Orders</h4>
+              <div class="table_page table-responsive">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Total</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <% orders.reverse().forEach((order) => { %>
+                    <tbody>
+                      <tr>
+                        <td><%= order.orderId %></td>
+                        <td><%= order.date.toString().substring(0,16) %></td>
+                        <td><span style="background-color: white;" class="success"><%= order.orderStatus %></span></td>
+                        <td>$<%= order.subtotal %> for <%= order.items.length %> items</td>
+                        <form action="/orderDetails" method="post">
+                          <input type="hidden" name="orderId" value="<%= order.orderId %>">
+                          <td><a href="" class="view"><button type="submit" style="background-color: transparent;">view</button></a></td>
+                        </form>
+                      </tr>
+                    </tbody>
+                  <% }) %>
+                </table>
+              </div>
+            <% } else { %>
+              <h1>Nothing to show</h1>
+            <% } %>
+          </div>
+                  
+          <div class="tab-pane fade" id="downloads">
+            <h4>Downloads</h4>
+            <div class="table_page table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Downloads</th>
+                    <th>Expires</th>
+                    <th>Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Shopnovilla - Free Real Estate PSD Template</td>
+                    <td>May 10, 2018</td>
+                    <td><span class="danger">Expired</span></td>
+                    <td><a href="#" class="view">Click Here To Download Your File</a></td>
+                  </tr>
+                  <tr>
+                    <td>Organic - ecommerce html template</td>
+                    <td>Sep 11, 2018</td>
+                    <td>Never</td>
+                    <td><a href="#" class="view">Click Here To Download Your File</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane" id="address">
+            <p>The following addresses will be used on the checkout page by default.</p>
+            <h5 class="billing-address">Billing address</h5>
+            <a href="#" class="view" data-bs-toggle="modal" data-bs-target="#addAddressModal">Add</a>
+            <address>
+              <div>
+                <div>
+                  <form action="deleteAddress" method="post">
+                    <div id="primaryAddress">
+                      <% if (typeof user !== 'undefined' && user.address.length > 0) { %>
+                        <div style="border: double rgb(67, 214, 224);">
+                          <div class="col-3">
+                            Address:<br>
+                          </div>
+                          <div class="d-flex flex-direction-horizontal justify-content-between">
+                            <% const latestAddress = user.address.length > 0
+                            ? user.address.reduce((prev, current) => {
+                                return (current.makeDefault > prev.makeDefault) ? current : prev;
+                              })
+                            : null; %>
+                            <p><strong><%= latestAddress.userName %></strong></p>
+                            <div col-6>
+                              <p><strong>House Name :</strong><%= latestAddress.houseName %></p>
+                              <p><strong>Landmark   :</strong><%= latestAddress.landmark %></p>
+                              <p><strong>postOffice :</strong><%= latestAddress.postOffice %></p>
+                              <p><strong>District   :</strong><%= latestAddress.district %></p>
+                            </div>
+                            <div col-6>
+                              <p><strong>State      :</strong><%= latestAddress.state %></p>
+                              <p><strong>Country    :</strong><%= latestAddress.country %></p>
+                              <p><strong>PIN        :</strong><%= latestAddress.pin %></p>
+                              <p><strong>Contact No.:</strong><%= latestAddress.contactNumber %></p>
+                              <input type="hidden" name="makeDefault" value="<%= latestAddress.makeDefault %>">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                          <button><a href="#" class="view" data-bs-toggle="modal" data-bs-target="#editAddressModal">Edit</a></button>
+                          <button type="submit">Delete</button>
+                        </div>
+                      <% } else { %>
+                        <p>No address available</p>
+                      <% } %>
+                    </div>
+                  </form>                            
+                </div>
+                <div>
+                  <div>
+                    <% if ( typeof user !== 'undefined' && user.address.length > 0 ) { %>
+                      <div class="col-3">
+                        Address: <br>
+                      </div>
+                      <% user.address.forEach((address)=>{ %>
+                      <form id="myForm" method="post" action="/makeDefaultAddress">
+                        <div style="border: 1px solid gray;">
+                          <p><strong><%= address.userName %></strong></p>
+                          <p><%= address.houseName %> , <%= address.landmark %> , <%= address.postOffice %> , <%= address.district %></p>
+                          <p><st><%= address.state %> , <%= address.country %> , <%= address.pin %> , <%= address.contactNumber %></p>
+                          <input type="hidden" name="makeDefault" value="<%= address.makeDefault %>">
+                          <button class="btn" onclick="makedefaultaddress()">Make Default</button>
+                          <button class="btn" onclick="deleteaddress()">Delete</button>
+                        </div>
+                      </form>
+                      <% }) %>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </address>
+            <!-- add address Modal -->
+            <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addAddressModalLabel">Add Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Two-column layout -->
+                    <form action="addaddress" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <!-- Column 1 content -->
+                          <div class="mb-3">
+                            <label for="userName" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="userName" id="userName">
+                          </div>
+                          <div class="mb-3">
+                            <label for="houseName" class="form-label">House Name</label>
+                            <input type="text" class="form-control" name="houseName" id="houseName" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="postOffice" class="form-label">Post Office</label>
+                            <input type="text" class="form-control" id="postOffice" name="postOffice" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="landmark" class="form-label">Landmark</label>
+                            <input type="text" class="form-control" id="landmark" name="landmark" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="district" class="form-label">District</label>
+                            <input type="text" class="form-control" id="district" name="district" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <!-- Column 2 content -->
+                          <div class="mb-3">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" class="form-control" name="state" id="state" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country" name="country" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="pin" class="form-label">PIN</label>
+                            <input type="text" class="form-control" id="pin" name="pin" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="contactNumber" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div style="display: none;">
+                        <input type="date" value="">
+                      </div>
+                      <!-- End of two-column layout -->
+                      <button type="submit" class="btn btn-primary">Save Address</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- edit address Modal -->
+            <div class="modal fade" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editAddressModalLabel">Edit Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Two-column layout -->
+                    <form action="editaddress" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <!-- Column 1 content -->
+                          <div class="mb-3">
+                            <label for="userName" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="userName" id="userName">
+                          </div>
+                          <div class="mb-3">
+                            <label for="houseName" class="form-label">House Name</label>
+                            <input type="text" class="form-control" name="houseName" id="houseName">
+                          </div>
+                          <div class="mb-3">
+                            <label for="postOffice" class="form-label">Post Office</label>
+                            <input type="text" class="form-control" id="postOffice" name="postOffice">
+                          </div>
+                          <div class="mb-3">
+                            <label for="landmark" class="form-label">Landmark</label>
+                            <input type="text" class="form-control" id="landmark" name="landmark">
+                          </div>
+                          <div class="mb-3">
+                            <label for="district" class="form-label">District</label>
+                            <input type="text" class="form-control" id="district" name="district">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <!-- Column 2 content -->
+                          <div class="mb-3">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" class="form-control" name="state" id="state">
+                          </div>
+                          <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country" name="country">
+                          </div>
+                          <div class="mb-3">
+                            <label for="pin" class="form-label">PIN</label>
+                            <input type="text" class="form-control" id="pin" name="pin">
+                          </div>
+                          <div class="mb-3">
+                            <label for="contactNumber" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End of two-column layout -->
+                      <button type="submit" class="btn btn-primary">Update Address</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ...:::: End Account Dashboard Section:::... -->
+<!-- Start Footer Section -->
+<footer class="footer-section footer-bg section-top-gap-100">
+  <div class="footer-wrapper">
+    <!-- Start Footer Top -->
+    <div class="footer-top">
+      <div class="container">
+        <div class="row mb-n6">
+          <div class="col-lg-3 col-sm-6 mb-6">
+            <!-- Start Footer Single Item -->
+            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+              data-aos-delay="0">
+              <h5 class="title">INFORMATION</h5>
+              <ul class="footer-nav">
+                <li><a href="#">Delivery Information</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Returns</a></li>
+              </ul>
+            </div>
+            <!-- End Footer Single Item -->
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-6">
+            <!-- Start Footer Single Item -->
+            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+              data-aos-delay="200">
+              <h5 class="title">MY ACCOUNT</h5>
+              <ul class="footer-nav">
+                <li><a href="#">My account</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Frequently Questions</a></li>
+                <li><a href="#">Order History</a></li>
+              </ul>
+            </div>
+            <!-- End Footer Single Item -->
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-6">
+            <!-- Start Footer Single Item -->
+            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+              data-aos-delay="400">
+              <h5 class="title">CATEGORIES</h5>
+              <ul class="footer-nav">
+                <li><a href="#">Decorative</a></li>
+                <li><a href="#">Kitchen utensils</a></li>
+                <li><a href="#">Chair & Bar stools</a></li>
+                <li><a href="#">Sofas and Armchairs</a></li>
+                <li><a href="#">Interior lighting</a></li>
+              </ul>
+            </div>
+            <!-- End Footer Single Item -->
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-6">
+            <!-- Start Footer Single Item -->
+            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+              data-aos-delay="600">
+              <h5 class="title">ABOUT US</h5>
+              <div class="footer-about">
+                <p>We are a team of designers and developers that create high quality Magento,
+                  Prestashop, Opencart.
+                </p>
+                <address class="address">
+                  <span>Address: Your address goes here.</span>
+                  <span>Email: demo@example.com</span>
+                </address>
+              </div>
+            </div>
+            <!-- End Footer Single Item -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer Top -->
+    <!-- Start Footer Center -->
+    <div class="footer-center">
+      <div class="container">
+        <div class="row mb-n6">
+          <div class="col-xl-3 col-lg-4 col-md-6 mb-6">
+            <div class="footer-social" data-aos="fade-up" data-aos-delay="0">
+              <h4 class="title">FOLLOW US</h4>
+              <ul class="footer-social-link">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-7 col-lg-6 col-md-6 mb-6">
+            <div class="footer-newsletter" data-aos="fade-up" data-aos-delay="200">
+              <h4 class="title">DON'T MISS OUT ON THE LATEST</h4>
+              <div class="form-newsletter">
+                <form action="#" method="post">
+                  <div class="form-fild-newsletter-single-item input-color--golden">
+                    <input type="email" placeholder="Your email address..." required>
+                    <button type="submit">SUBSCRIBE!</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Footer Center -->
+    <!-- Start Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div
+          class="row justify-content-between align-items-center align-items-center flex-column flex-md-row mb-n6">
+          <div class="col-auto mb-6">
+            <div class="footer-copyright">
+              <p class="copyright-text">&copy;<script>document.write(new Date().getFullYear());</script><a href="#">Hono</a>. Made with <i
+                class="fa fa-heart text-danger"></i> by <a href="#">jis</a> </p>
+            </div>
+          </div>
+          <div class="col-auto mb-6">
+            <div class="footer-payment">
+              <div class="image">
+                <img src="assets/images/company-logo/payment.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Footer Bottom -->
+  </div>
+</footer>
+<!-- End Footer Section -->
+<!-- material-scrolltop button -->
+<button class="material-scrolltop" type="button"></button>
+<!-- Start Modal Add cart -->
+<div class="modal fade" id="modalAddcart" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col text-end">
+              <button type="button" class="close modal-close" data-bs-dismiss="modal"
+                aria-label="Close">
+              <span aria-hidden="true"> <i class="fa fa-times"></i></span>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="modal-add-cart-product-img">
+                    <img class="img-fluid"
+                      src="assets/images/product/default/home-1/default-1.jpg" alt="">
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="modal-add-cart-info"><i class="fa fa-check-square"></i>Added to cart
+                    successfully!
+                  </div>
+                  <div class="modal-add-cart-product-cart-buttons">
+                    <a href="#">View Cart</a>
+                    <a href="#">Checkout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 modal-border">
+              <ul class="modal-add-cart-product-shipping-info">
+                <li> <strong><i class="icon-shopping-cart"></i> There Are 5 Items In Your
+                  Cart.</strong>
+                </li>
+                <li> <strong>TOTAL PRICE: </strong> <span>$187.00</span></li>
+                <li class="modal-continue-button"><a href="#" data-bs-dismiss="modal">CONTINUE
+                  SHOPPING</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Add cart -->
+<!-- Start Modal Quickview cart -->
+<div class="modal fade" id="modalQuickview" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col text-end">
+              <button type="button" class="close modal-close" data-bs-dismiss="modal"
+                aria-label="Close">
+              <span aria-hidden="true"> <i class="fa fa-times"></i></span>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="product-details-gallery-area mb-7">
+                <!-- Start Large Image -->
+                <div class="product-large-image modal-product-image-large swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="product-image-large-image swiper-slide img-responsive">
+                      <img src="assets/images/product/default/home-1/default-1.jpg" alt="">
+                    </div>
+                    <div class="product-image-large-image swiper-slide img-responsive">
+                      <img src="assets/images/product/default/home-1/default-2.jpg" alt="">
+                    </div>
+                    <div class="product-image-large-image swiper-slide img-responsive">
+                      <img src="assets/images/product/default/home-1/default-3.jpg" alt="">
+                    </div>
+                    <div class="product-image-large-image swiper-slide img-responsive">
+                      <img src="assets/images/product/default/home-1/default-4.jpg" alt="">
+                    </div>
+                    <div class="product-image-large-image swiper-slide img-responsive">
+                      <img src="assets/images/product/default/home-1/default-5.jpg" alt="">
+                    </div>
+                    <div class="product-image-large-image swiper-slide img-responsive">
+                      <img src="assets/images/product/default/home-1/default-6.jpg" alt="">
+                    </div>
+                  </div>
+                </div>
+                <!-- End Large Image -->
+                <!-- Start Thumbnail Image -->
+                <div
+                  class="product-image-thumb modal-product-image-thumb swiper-container pos-relative mt-5">
+                  <div class="swiper-wrapper">
+                    <div class="product-image-thumb-single swiper-slide">
+                      <img class="img-fluid"
+                        src="assets/images/product/default/home-1/default-1.jpg" alt="">
+                    </div>
+                    <div class="product-image-thumb-single swiper-slide">
+                      <img class="img-fluid"
+                        src="assets/images/product/default/home-1/default-2.jpg" alt="">
+                    </div>
+                    <div class="product-image-thumb-single swiper-slide">
+                      <img class="img-fluid"
+                        src="assets/images/product/default/home-1/default-3.jpg" alt="">
+                    </div>
+                    <div class="product-image-thumb-single swiper-slide">
+                      <img class="img-fluid"
+                        src="assets/images/product/default/home-1/default-4.jpg" alt="">
+                    </div>
+                    <div class="product-image-thumb-single swiper-slide">
+                      <img class="img-fluid"
+                        src="assets/images/product/default/home-1/default-5.jpg" alt="">
+                    </div>
+                    <div class="product-image-thumb-single swiper-slide">
+                      <img class="img-fluid"
+                        src="assets/images/product/default/home-1/default-6.jpg" alt="">
+                    </div>
+                  </div>
+                  <!-- Add Arrows -->
+                  <div class="gallery-thumb-arrow swiper-button-next"></div>
+                  <div class="gallery-thumb-arrow swiper-button-prev"></div>
+                </div>
+                <!-- End Thumbnail Image -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="modal-product-details-content-area">
+                <!-- Start  Product Details Text Area-->
+                <div class="product-details-text">
+                  <h4 class="title">Nonstick Dishwasher PFOA</h4>
+                  <div class="price"><del>$70.00</del>$80.00</div>
+                </div>
+                <!-- End  Product Details Text Area-->
+                <!-- Start Product Variable Area -->
+                <div class="product-details-variable">
+                  <!-- Product Variable Single Item -->
+                  <div class="variable-single-item">
+                    <span>Color</span>
+                    <div class="product-variable-color">
+                      <label for="modal-product-color-red">
+                      <input name="modal-product-color" id="modal-product-color-red"
+                        class="color-select" type="radio" checked>
+                      <span class="product-color-red"></span>
+                      </label>
+                      <label for="modal-product-color-tomato">
+                      <input name="modal-product-color" id="modal-product-color-tomato"
+                        class="color-select" type="radio">
+                      <span class="product-color-tomato"></span>
+                      </label>
+                      <label for="modal-product-color-green">
+                      <input name="modal-product-color" id="modal-product-color-green"
+                        class="color-select" type="radio">
+                      <span class="product-color-green"></span>
+                      </label>
+                      <label for="modal-product-color-light-green">
+                      <input name="modal-product-color"
+                        id="modal-product-color-light-green" class="color-select"
+                        type="radio">
+                      <span class="product-color-light-green"></span>
+                      </label>
+                      <label for="modal-product-color-blue">
+                      <input name="modal-product-color" id="modal-product-color-blue"
+                        class="color-select" type="radio">
+                      <span class="product-color-blue"></span>
+                      </label>
+                      <label for="modal-product-color-light-blue">
+                      <input name="modal-product-color"
+                        id="modal-product-color-light-blue" class="color-select"
+                        type="radio">
+                      <span class="product-color-light-blue"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Product Variable Single Item -->
+                  <div class="d-flex align-items-center flex-wrap">
+                    <div class="variable-single-item ">
+                      <span>Quantity</span>
+                      <div class="product-variable-quantity">
+                        <input min="1" max="100" value="1" type="number">
+                      </div>
+                    </div>
+                    <div class="product-add-to-cart-btn">
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add To
+                      Cart</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Product Variable Area -->
+                <div class="modal-product-about-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste
+                    laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam
+                    in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel
+                    recusandae
+                  </p>
+                </div>
+                <!-- Start  Product Details Social Area-->
+                <div class="modal-product-details-social">
+                  <span class="title">SHARE THIS PRODUCT</span>
+                  <ul>
+                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+                <!-- End  Product Details Social Area-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Quickview cart -->
+<!-- ::::::::::::::All JS Files here :::::::::::::: -->
+<!-- Global Vendor, plugins JS -->
+<!-- <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+  <script src="assets/js/vendor/popper.min.js"></script>
+  <script src="assets/js/vendor/bootstrap.min.js"></script>
+  <script src="assets/js/vendor/jquery-ui.min.js"></script> -->
+<!--Plugins JS-->
+<!-- <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+  <script src="assets/js/plugins/material-scrolltop.js"></script>
+  <script src="assets/js/plugins/jquery.nice-select.min.js"></script>
+  <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+  <script src="assets/js/plugins/venobox.min.js"></script>
+  <script src="assets/js/plugins/jquery.waypoints.js"></script>
+  <script src="assets/js/plugins/jquery.lineProgressbar.js"></script>
+  <script src="assets/js/plugins/aos.min.js"></script>
+  <script src="assets/js/plugins/jquery.instagramFeed.js"></script>
+  <script src="assets/js/plugins/ajax-mail.js"></script> -->
+<!-- Use the minified version files listed below for better performance and remove the files listed above -->
+<script src="vendors/myaccount/vendor.min.js"></script>
+<script src="js/myaccount/plugins.min.js"></script>
+<!-- Main JS -->
+<script src="js/myaccount/main.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+<script src="vendors/isotope/isotope-min.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="vendors/jquery-ui/jquery-ui.js"></script>
+<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+<script src="vendors/counter-up/jquery.counterup.js"></script>
+<script src="js/theme.js"></script>
+<script>
+
+  function makedefaultaddress(){
+    const form  = document.getElementById('myForm');
+    form.action = "/makeDefaultAddress";
+    form.submit();
+  }
+
+  function deleteaddress(){
+    const form  = document.getElementById('myForm');
+    form.action = "/deleteAddress";
+    form.submit();
+  }
+
+</script>
+<script>
+
+  function editProfile(){
+
+    const newUserDiv  = document.getElementById('newUserName');
+    newUserDiv.style.display        = "flex";
+    newUserDiv.style.flexDirection  = "column";
+    newUserDiv.style.alignItems     = "center";
+    newUserDiv.style.marginLeft     = "10px";
+    newUserDiv.className            = "mb-3";
+
+    const newMobileDiv  = document.getElementById('newUserMobile');
+    newMobileDiv.style.display      = "flex";
+    newMobileDiv.style.flexDirection= "column";
+    newMobileDiv.style.alignItems   = "center";
+    newMobileDiv.style.marginLeft   = "10px";
+    newMobileDiv.className          = "mb-3";
+
+    const saveButton  = document.getElementById('saveButton');
+    saveButton.style.display = "inline";
+    
+    const editProfileButton = document.getElementById('editProfileButton');
+    editProfileButton.style.display   = "none";
+
+  }
+
+</script>
+<script>
+
+  function saveProfileChanges() {
+      console.log("function called for saving");
+      const userName = document.getElementById('userNameNew').value;
+      console.log(userName);
+    const userMobile = document.getElementById('userMobileNew').value;
+    console.log(userMobile);
+
+    fetch('/editProfile', {
+      method: 'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ userName, userMobile }), // Convert to JSON string
+    })
+      .then(() => {
+        window.location.href = '/myProfile';
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+</script>
+
+<%- include('../layouts/footer.ejs')  -%>

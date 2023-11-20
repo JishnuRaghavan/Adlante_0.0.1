@@ -1,0 +1,343 @@
+<%- include('../adminlayouts/header.ejs') -%>
+<main id="main-wrapper" class="main-wrapper">
+  <div class="header">
+    <!-- navbar -->
+    <div class="navbar-custom navbar navbar-expand-lg">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-block d-md-none" href="/admin/adminhome">
+        <img src="/img/adlante.jpg" alt="Image">
+        </a>
+        <a id="nav-toggle" href="#!" class="ms-auto ms-md-0 me-0 me-lg-3 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-text-indent-left text-muted" viewBox="0 0 16 16">
+            <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </a>
+        <div class="d-none d-md-none d-lg-block">
+          <!-- Form -->
+          <form action="#">
+            <div class="input-group ">
+              <input class="form-control rounded-3" type="search" value="" id="searchInput" placeholder="Search">
+              <span class="input-group-append">
+                <button class="btn  ms-n10 rounded-0 rounded-end" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-search text-dark">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!--Navbar nav -->
+        <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
+          <a href="#" class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+          </a>
+          </li>
+          <li class="dropdown ms-2">
+            <a class="rounded-circle" href="#!" role="button" id="dropdownUser"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="avatar avatar-md avatar-indicators avatar-online">
+                <img alt="avatar" src="/admin/images/avatar/JISHNU SUIT.jpg" class="rounded-circle">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownUser">
+              <div class="px-4 pb-0 pt-2">
+                <div class="lh-1 ">
+                  <h5 class="mb-1"> Jishnu Raghavan</h5>
+                  <a href="#!" class="text-inherit fs-6">View my profile</a>
+                </div>
+                <div class=" dropdown-divider mt-3 mb-2"></div>
+              </div>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
+                  Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="activity"></i>Activity Log
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#!">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="settings"></i>Settings
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/signout">
+                  <i class="me-2 icon-xxs dropdown-item-icon"
+                    data-feather="power"></i>Sign Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbar vertical -->
+  <!-- Sidebar -->
+  <div class="navbar-vertical navbar nav-dashboard">
+    <div class="h-100" data-simplebar>
+      <!-- Brand logo -->
+      <a class="navbar-brand" href="/adminhome">
+      <img src="/img/adlante.jpg" alt="dash ui - bootstrap 5 admin dashboard template">
+      </a>
+      <!-- Navbar nav -->
+      <ul class="navbar-nav flex-column" id="sideNavbar">
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/dashboard" aria-expanded="false">
+          <i data-feather="home" class="nav-icon me-2 icon-xxs" ></i>
+          Dashboard
+          </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <div class="navbar-heading">Website</div>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+          <a class="nav-link has-arrow  collapsed " href="#!"
+            data-bs-toggle="collapse" data-bs-target="#navecommerce" aria-expanded="false"
+            aria-controls="navecommerce">
+          <i data-feather="shopping-cart" class="nav-icon me-2 icon-xxs" >
+          </i> Ecommerce
+          </a>
+          <div id="navecommerce" class="collapse "
+            data-bs-parent="#sideNavbar">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link has-arrow active" href="/admin/productList">
+                  Product List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/productEdit">
+                Add Product
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/categoryList">
+                  Category List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow" href="/admin/orderList">
+                  Order List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/ecommerce-customer">
+                Customer
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/addCoupon">
+                Coupon
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/CouponList">
+                Coupon List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/bannerManagement">
+                banners
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/brandManagement">
+                brands
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link has-arrow"
+                  href="/admin/offerManagement">
+                Offers
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="app-content">
+    <!-- Container fluid -->
+    <form action="/admin/addCoupon" method="post">
+      <div class="app-content-area">
+        <div id="top" class="sa-app__body">
+          <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
+            <div class="container container--max--xl">
+              <div class="py-5">
+                <div class="row g-4 align-items-center">
+                  <div class="col">
+                    <nav class="mb-2" aria-label="breadcrumb">
+                      <ol class="breadcrumb breadcrumb-sa-simple">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="app-coupons-list.html">Coupons</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add Coupon</li>
+                      </ol>
+                    </nav>
+                    <h1 class="h3 m-0">Add Coupon</h1>
+                  </div>
+                  <div class="col-auto d-flex"><button type="submit" class="btn btn-primary">save</button></div>
+                </div>
+              </div>
+              <div class="sa-entity-layout" data-sa-container-query="{&quot;920&quot;:&quot;sa-entity-layout--size--md&quot;,&quot;1100&quot;:&quot;sa-entity-layout--size--lg&quot;}">
+                <div class="sa-entity-layout__body">
+                  <div class="sa-entity-layout__main">
+                    <div class="card">
+                      <div class="card-body p-5">
+                        <div class="mb-5">
+                          <h2 class="mb-0 fs-exact-18">Basic information</h2>
+                        </div>
+                        <div class="mb-4">
+                          <label for="form-coupon/code" class="form-label">Code</label>
+                          <input type="text" name="code" class="form-control" id="form-coupon/code" placeholder="QWERTY12" required/>
+                        </div>
+                        <div class="mb-4">
+                          <div class="form-label mb-3">
+                            Type
+                          </div>
+                          <label class="form-check">
+                          <input type="radio" value="percentage" class="form-check-input" name="type" checked=""/><span class="form-check-label">Percentage</span></label>
+                          <label class="form-check">
+                          <input type="radio" value="fixedAmount" class="form-check-input" name="type"/><span class="form-check-label">Fixed amount</span></label>
+                          <label class="form-check mb-0">
+                          <input type="radio" value="freeShipping" class="form-check-input" name="type"/><span class="form-check-label">Free shipping</span></label>
+                        </div>
+                        <div class="mb-4">
+                          <label for="form-coupon/value" class="form-label">Discount value</label>
+                          <input name="discountValue"  type="number" class="form-control" id="form-coupon/value" value="10" required/>
+                        </div>
+                        <div class="mb-4">
+                          <label for="form-coupon/limit" class="form-label">Usage limit</label>
+                          <input name="usageLimit" type="number" class="form-control" id="form-coupon/limit" value="100" required/>
+                        </div>
+                        <div class="mb-4">
+                          <label for="form-coupon/limit" class="form-label">Discount limit</label>
+                            <input name="discountLimit" type="number" class="form-control" id="form-coupon/limit" value="20000" required/>
+                        </div>               
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sa-entity-layout__sidebar">
+                    <div class="card w-100">
+                      <div class="card-body p-5">
+                        <div class="mb-5">
+                          <h2 class="mb-0 fs-exact-18">Status</h2>
+                        </div>
+                        <div class="mb-n2 mt-n3">
+                          <label class="form-check">
+                          <input value="enabled" type="radio" class="form-check-input" name="status" checked=""/><span class="form-check-label">Enabled</span></label>
+                          <label class="form-check mb-0">
+                          <input value="disabled" type="radio" class="form-check-input" name="status"/><span class="form-check-label">Disabled</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card w-100 mt-5">
+                      <div class="card-body p-5">
+                        <div class="mb-5">
+                          <h2 class="mb-0 fs-exact-18">Schedule</h2>
+                          <div class="mt-3 text-muted">Use these settings to limit the coupon expiration date.</div>
+                        </div>
+                        <div class="mb-4">
+                          <label for="form-coupon/start-date" class="form-label">Start date</label>
+                          <input type="text" name="startDate" class="form-control datepicker-here" id="form-coupon/start-date" autocomplete="off" placeholder="mm-dd-yyyy" data-auto-close="true" data-language="en" required/>
+                        </div>
+                        <div>
+                          <label for="form-coupon/end-date" class="form-label">End date</label>
+                          <input type="text" autocomplete="off" class="form-control datepicker-here" name="endDate" id="form-coupon/end-date" data-auto-close="true" placeholder="mm-dd-yyyy" data-language="en" required/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+<!-- Add this HTML for the custom modal -->
+<div id="customAlert" style="display: none;">
+  <div id="alertContent"></div>
+  <button onclick="closeCustomAlert()">Close</button>
+</div>
+
+<!-- Your existing script -->
+<script>
+  const newMessage = '<%= alertMessage %>';
+  
+  if (newMessage !== "none") {
+    // Replace the standard alert with the custom modal
+    document.getElementById('alertContent').innerHTML = newMessage;
+    document.getElementById('customAlert').style.display = 'block';
+  }
+
+  // Function to close the custom alert
+  function closeCustomAlert() {
+    document.getElementById('customAlert').style.display = 'none';
+  }
+</script>
+
+<script src="/admin/libs/dropzone/dist/min/dropzone.min.js"></script>
+<!-- flatpickr -->
+<script src="/admin/libs/flatpickr/dist/flatpickr.min.js"></script>
+<!-- quill js -->
+<script src="/admin/libs/quill/dist/quill.min.js"></script>
+<script src="/admin/libs/%40yaireo/tagify/dist/tagify.min.js"></script>
+<!-- Libs JS -->
+<script src="/admin/libs/jquery/dist/jquery.min.js"></script>
+<script src="/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/libs/feather-icons/dist/feather.min.js"></script>
+<script src="/admin/libs/simplebar/dist/simplebar.min.js"></script>
+<!-- Theme JS -->
+<script src="/admin/js/theme.min.js"></script>
+
+<script src="/admin/stroyka/vendor/jquery/jquery.min.js"></script>
+<script src="/admin/stroyka/vendor/feather-icons/feather.min.js"></script>
+<script src="/admin/stroyka/vendor/simplebar/simplebar.min.js"></script>
+<script src="/admin/stroyka/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/stroyka/vendor/highlight.js/highlight.pack.js"></script>
+<script src="/admin/stroyka/vendor/quill/quill.min.js"></script>
+<script src="/admin/stroyka/vendor/air-datepicker/js/datepicker.min.js"></script>
+<script src="/admin/stroyka/vendor/air-datepicker/js/i18n/datepicker.en.js"></script>
+<script src="/admin/stroyka/vendor/select2/js/select2.min.js"></script>
+<script src="/admin/stroyka/vendor/fontawesome/js/all.min.js" data-auto-replace-svg="" async=""></script>
+<script src="/admin/stroyka/vendor/chart.js/chart.min.js"></script>
+<script src="/admin/stroyka/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/admin/stroyka/vendor/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="/admin/stroyka/vendor/nouislider/nouislider.min.js"></script>
+<script src="/admin/stroyka/vendor/fullcalendar/main.min.js"></script>
+<script src="/admin/stroyka/js/stroyka.js"></script>
+<script src="/admin/stroyka/js/custom.js"></script>
+<script src="/admin/stroyka/js/calendar.js"></script>
+<script src="/admin/stroyka/js/demo.js"></script>
+<script src="/admin/stroyka/js/demo-chart-js.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<%- include('../adminlayouts/footer.ejs') -%>
